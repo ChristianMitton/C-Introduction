@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+	int data;
+	struct node *next;
+};
+
+int main(int argc, char** argv) {
+	if (argc != 2) {
+		printf("Insufficient Arguments");
+		return 0;
+	}
+	
+	char letter;
+	int number;
+
+	FILE *fp = fopen(argv[1], "r"); //open file
+	if(fp == NULL) { printf("NULL file\n"); return 0; }
+
+	while(fscanf(fp,"%c %d !!!\n", &letter, &number) == 2) {
+		printf("%c %d\n",letter, number);
+	}
+	
+	return 0;	
+}

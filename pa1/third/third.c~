@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#define size 10000
+
+struct Entry {
+	int key; //indicates index
+	int value; //number
+	struct Entry *next;
+};
+
+#define size 10000
+
+int getHashCode(int number) {
+	return number % size;
+
+}
+
+int main(int argc, char** argv) {
+	
+	if(argc != 2) { printf{"Insufficient arguments"}; return 0;
+	char letter; int number;
+
+	struct Entry hashTable[size];
+	
+
+	return 0;
+}

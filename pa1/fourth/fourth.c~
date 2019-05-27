@@ -1,0 +1,70 @@
+//#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef int bool;
+#define true 1
+#define false 0
+
+int main(int argc, char** argv) {
+
+	FILE *fp = fopen(argv[1], "r"); /*open file*/ if(fp == NULL) { printf("error\n"); return 0; }
+	
+	int row;
+	int column;
+
+	fscanf(fp,"%d %d",&row, &column);
+
+	printf("row: %d, column: %d\n", row, column);
+	
+	//initialize all rows to 0
+	int *matrix1 = (int *) malloc(row * column * sizeof(int));
+	int i,j; int count = 0;
+	for(i = 0; i< row; i++) {
+		for(j = 0; j < column; j++){
+			*(matrix1 + i*column + j) = count++;
+		}
+	}
+	for(i = 0; i< row; i++) {
+		for(j = 0; j < column; j++){
+			printf("%d ; ", *(matrix1 + i*column + j));
+		}
+		printf("\n");
+	}
+	printf("%d\n", *(matrix1 + 0*column + 0));	
+	printf("%d\n", *(matrix1 + 0*column + 1));
+	printf("%d\n", *(matrix1 + 0*column + 2));
+	printf("\n");	
+	printf("%d\n", *(matrix1 + 1*column + 0));
+	printf("%d\n", *(matrix1 + 1*column + 1));
+	printf("%d\n", *(matrix1 + 1*column + 2));
+	printf("\n");
+	printf("%d\n", *(matrix1 + 1*column + 3));
+	printf("%d\n", *(matrix1 + 1*column + 4));
+	printf("%d\n", *(matrix1 + 1*column + 5));
+	//printf("%d\n", *(matrix1 + 1*column + 6));
+	
+	//int matrix1[row][column];
+
+
+	/*
+	for(int i = 0; i < row; i++) {
+		for(int j = 0; j < column; j++){
+			//printf("Element: %d\n", matrix1[i][j]);
+			matrix1[i][j] = 0;
+		}	
+	}
+
+	for(int i = 0; i < row; i++) {
+		for(int j = 0; j < column; j++) {
+			printf("Element: %d\n", matrix1[i][j]);	
+		}
+		printf("\n");
+	}
+	printf("%d\n",matrix1[100][100]);
+	*/
+		
+
+
+	return 0;
+}

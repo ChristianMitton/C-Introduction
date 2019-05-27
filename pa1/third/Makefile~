@@ -1,0 +1,7 @@
+all: three
+
+three: newThird.c
+	gcc -Wall -Werror -fsanitize=address -std=c99 newThird.c -o third
+
+clean:
+	rm -rf third

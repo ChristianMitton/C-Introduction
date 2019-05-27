@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(int argc, char ** argv) {
+  
+        FILE *fp = fopen(argv[1], "r"); /*open file*/ if(fp == NULL) { printf("error\n"); return 0; }
+
+	
+	int rowxcol;
+	//printf("enter size1 and size2 \n");
+	//scanf("%d %d", &row, &column);
+  
+	fscanf(fp,"%d",&rowxcol);
+	printf("rowxcol: %d\n", rowxcol);
+	
+	/*---------------------------------------
+	//creating array of pointers for matrix 1
+	-----------------------------------------*/
+	int ** matrix1;
+	matrix1 = (int**) malloc(rowxcol * sizeof(int *)); //space for all rows has been created
+	
+	//creating space for elements pointer is pointing to
+	for(int i = 0; i < rowxcol; i++){
+		matrix1[i] = (int *) malloc(rowxcolumn * sizeof(int));
+	}
+	
+	//setting values for matrix;
+	int element;
+	for(int i = 0; i < rowxcol; i++){
+		for(int j = 0; j< rowxcolumn; j++){
+			fscanf(fp,"%d", &element);
+			matrix1[i][j] = element;
+			//matrix1[i][j]= 0;
+		}
+	}
+
+
+	printf("works\n");
+	return 0;
+}
